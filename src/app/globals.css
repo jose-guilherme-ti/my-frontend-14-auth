@@ -3,10 +3,10 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ededed;
+    --foreground: #0a0a0a;
   }
 }
 
@@ -35,8 +35,54 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Card inspirado no modal da imagem */
+.post-card-wrapper {
+  background: #fdf4e3;
+  border: 3px solid #e7d1ac;
+  border-radius: 14px;
+  padding: 12px;
+  position: relative;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 150ms ease-out, border-color 400ms;
+}
+
+.post-card-wrapper .post-title {
+  background: #e7c690;
+  text-align: center;
+  padding: 4px 8px;
+  font-weight: bold;
+  border-radius: 8px;
+  color: #543c28;
+  margin-bottom: 6px;
+}
+
+/* 💥 Animação para posts novos */
+.highlight-post {
+  animation: popIn 0.25s ease-out;
+  border-color: #ffdf8a !important;
+  box-shadow: 0px 0px 15px #ffeb9e;
+}
+
+/* borda pulsando  */
+.pop-border {
+  animation: borderPulse 1.4s infinite;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes borderPulse {
+  0% { border-color: #ffdf8a; }
+  50% { border-color: #ffca46; }
+  100% { border-color: #ffdf8a; }
+}
+
+
+
+@media (prefers-color-scheme: ligth) {
   html {
-    color-scheme: dark;
+    color-scheme: ligth;
   }
 }
