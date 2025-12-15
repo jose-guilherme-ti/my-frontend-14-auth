@@ -37,6 +37,12 @@ export default function Navbar({
             <>
               {isLoggedIn && (
                 <>
+                <Button color="inherit" component={Link} href="/agenda" data-testid="nav-otp-agenda">
+                    Agenda
+                  </Button>
+                 <Button color="inherit" component={Link} href="/agenda_admin" data-testid="nav-otp-agenda-admin">
+                    Agenda Admin
+                  </Button>
                   <Button color="inherit" component={Link} href="/otp_input" data-testid="nav-otp-input">
                     OtpInput
                   </Button>
