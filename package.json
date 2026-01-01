@@ -19,12 +19,11 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@hookform/resolvers": "^5.2.2",
-    "@module-federation/enhanced": "^0.22.0",
-    "@module-federation/nextjs-mf": "^8.8.50",
     "@module-federation/runtime": "^0.22.0",
     "@module-federation/utilities": "^3.1.78",
     "@mui/icons-material": "^5.15.20",
     "@mui/material": "^5.18.0",
+    "@mui/material-nextjs": "^7.3.6",
     "@mui/x-date-pickers": "^8.22.0",
     "cypress-localstorage-commands": "^2.2.8",
     "dayjs": "^1.11.19",
@@ -34,7 +33,7 @@
     "imask": "^7.6.1",
     "install": "^0.13.0",
     "jsonwebtoken": "^9.0.2",
-    "next": "^14.2.33",
+    "next": "^14.1.0",
     "next-auth": "^4.24.13",
     "npm": "^11.6.4",
     "react": "^18.3.1",
@@ -43,7 +42,8 @@
     "react-imask": "^7.6.1",
     "recharts": "^3.6.0",
     "rxjs": "^7.8.2",
-    "zod": "^4.1.13"
+    "zod": "^4.1.13",
+    "zustand": "^5.0.9"
   },
   "devDependencies": {
     "@apollo/server": "^5.1.0",
