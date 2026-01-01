@@ -1,23 +1,11 @@
 describe("ChaptersProgre Page", () => {
     beforeEach(() => {
         cy.session("login-session", () => {
-            cy.visit("http://localhost:3000/login");
-
-            // Verifica se carregou inputs (evita hydration error)
-            cy.get('[data-testid="login-email"]', { timeout: 8000 }).should("exist");
-            cy.get('[data-testid="login-password"]').should("exist");
-
-            // Preenche login
-            cy.get('[data-testid="login-email"]').type("admin@example.com");
-            cy.get('[data-testid="login-password"]').type("123456");
-
-            cy.get('[data-testid="login-submit"]').click();
-
-            // Login não deve falhar
-            cy.url().should("not.include", "/login");
-            cy.contains("GraphQL Dashboard", { timeout: 8000 }).should("exist");
-            /*  cy.visit("/progresso"); */ // ajuste conforme sua rota real
+            cy.loginSession(); 
         });
+        cy.visit("http://localhost:3000/progresso");
+
+        cy.url({ timeout: 10000 }).should("include", "/progresso");
     });
 
     /*  it("Deve acessar o progresso", () => {
@@ -68,9 +56,9 @@ describe("ChaptersProgre Page", () => {
      });
   */
     it("Atualiza progresso ao fazer scroll", () => {
-        cy.visit("http://localhost:3000/");
+      /*   cy.visit("http://localhost:3000/");
         cy.get('[data-testid="nav-progress"]').click();
-        cy.wait(2000);
+        cy.wait(2000); */
         // Encontra o painel de scroll visível no capítulo 1
         // Seleciona o painel atual do capítulo (overflow-y: auto)
 

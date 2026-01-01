@@ -37,6 +37,12 @@ export default function Navbar({
             <>
               {isLoggedIn && (
                 <>
+                <Button color="inherit" component={Link} href="/carousel" data-testid="nav-otp-carousel">
+                    Carousel
+                  </Button>
+                <Button color="inherit" component={Link} href="/quiz" data-testid="nav-otp-quiz">
+                    Quiz
+                  </Button>
                 <Button color="inherit" component={Link} href="/agenda" data-testid="nav-otp-agenda">
                     Agenda
                   </Button>

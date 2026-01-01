@@ -85,12 +85,34 @@ Cypress.Commands.add("paste", { prevSubject: true }, (subject, text) => {
 });
 
 
+Cypress.Commands.add('loginSession', (email = "admin@example.com", password = "123456") => {
+    cy.session([email, password], () => {
+        cy.visit("http://localhost:3000/login");
+
+        // Preenchimento do formulário
+        cy.get('[data-testid="login-email"]', { timeout: 10000 }).type(email);
+        cy.get('[data-testid="login-password"]').type(password);
+        cy.get('[data-testid="login-submit"]').click();
+
+        // Validação de sucesso para garantir que a sessão foi estabelecida
+        cy.url({ timeout: 10000 }).should("not.include", "/login");
+        cy.contains("GraphQL Dashboard", { timeout: 10000 }).should("be.visible");
+    }, {
+        // Opcional: valida se a sessão ainda é válida antes de reutilizá-la
+        validate() {
+            cy.visit("http://localhost:3000/"); 
+            cy.contains("GraphQL Dashboard").should("be.visible");
+        }
+    });
+});
+
 // Tipagem TS
 declare global {
   namespace Cypress {
     interface Chainable {
       login(): Chainable<void>;
       paste(text: string): Chainable<Element>;
+      loginSession(email?: string, password?: string): Chainable<void>;
     }
   }
 }

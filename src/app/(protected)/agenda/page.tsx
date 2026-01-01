@@ -111,11 +111,7 @@ export default function TheaterCalendarPage() {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
 
-  const [form, setForm] = useState({
-    clientName: "",
-    eventName: "",
-    durationHours: "",
-  });
+
 
   const { data, loading } = useQuery<CalendarReservationsQuery>(CALENDAR_RESERVATIONS);
   const { data: paymentConfirmed } = useSubscription<PaymentSubscriptionPayload>(PAYMENT_CONFIRMED);
@@ -140,7 +136,7 @@ export default function TheaterCalendarPage() {
     data.calendarReservations.forEach((r: any) => {
       r.paid ? paid.push(r.date) : pending.push(r.date);
     });
-    console.log(paid, pending);
+    //console.log(paid, pending);
     setBlockedDates(paid);
     setPendingDates(pending);
   }, [data]);

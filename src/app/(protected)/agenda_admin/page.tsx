@@ -271,6 +271,7 @@ export default function AdminReservationsPage() {
                     {!reservation.paid ? (
                       <Button
                         variant="contained"
+                        data-testid="confirm-payment-btn"
                         onClick={() =>
                           handleConfirmPayment(reservation.id)
                         }
@@ -286,6 +287,7 @@ export default function AdminReservationsPage() {
                       <Button
                         variant="outlined"
                         color="error"
+                        data-testid="remove-payment-btn"
                         onClick={() =>
                           handleRemovePayment(reservation.id)
                         }
